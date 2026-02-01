@@ -23,10 +23,10 @@ const PortfolioSection = () => {
               Portfolio
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
-              Featured <span className="text-gradient">Work</span>
+              Case <span className="text-gradient">Study</span>
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              UI/UX design projects showcasing my approach to creating intuitive digital experiences.
+              UI/UX design project showcasing my approach to creating intuitive digital experiences.
             </p>
           </div>
 
@@ -37,14 +37,6 @@ const PortfolioSection = () => {
                 key={index}
                 className="group relative p-8 bg-card rounded-3xl shadow-card border border-border/50 overflow-hidden card-hover"
               >
-                {/* Featured badge */}
-                {project.featured && (
-                  <div className="absolute top-6 right-6">
-                    <span className="px-3 py-1 bg-accent text-accent-foreground text-xs font-semibold rounded-full uppercase tracking-wide">
-                      Featured
-                    </span>
-                  </div>
-                )}
                 
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   {/* Project Info */}
