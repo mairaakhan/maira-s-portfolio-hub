@@ -1,6 +1,9 @@
 import { ExternalLink, Figma, Monitor, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import caseStudyImage from "@/assets/case-study-carcleansed.png";
+import caseStudyFrame1 from "@/assets/case-study-frame1.png";
+import caseStudyFrame2 from "@/assets/case-study-frame2.png";
+import caseStudyFrame3 from "@/assets/case-study-frame3.png";
+import caseStudyFrame4 from "@/assets/case-study-frame4.png";
 import internshipImage from "@/assets/internship-laundry-system.png";
 
 const PortfolioSection = () => {
@@ -12,7 +15,7 @@ const PortfolioSection = () => {
       description: "A comprehensive mobile app design for a car cleaning and mechanic service platform. Designed complete user flows including authentication, service discovery, mechanic profiles with ratings, and service booking. Focused on intuitive navigation and clean visual hierarchy.",
       tools: ["Figma", "Prototyping", "User Research", "Mobile Design"],
       link: "https://www.figma.com/proto/Xx0f0t4ItpGAdirIUaUddM/Car-Cleansed?node-id=0-1&t=xyfXwhbAU6b0Bhjr-1",
-      image: caseStudyImage
+      images: [caseStudyFrame1, caseStudyFrame2, caseStudyFrame3, caseStudyFrame4]
     },
     {
       title: "Guest Laundry Management System",
@@ -21,7 +24,7 @@ const PortfolioSection = () => {
       description: "A full-featured web application designed during my UI/UX internship at Aditya Enterprises. Created an intuitive laundry management dashboard for hotel receptions, featuring item categorization, billing preview, and comprehensive filter systems for efficient guest service management.",
       tools: ["Figma", "Dashboard Design", "Web Application", "UX Research"],
       link: null,
-      image: internshipImage
+      images: [internshipImage]
     }
   ];
 
@@ -98,16 +101,30 @@ const PortfolioSection = () => {
                   
                   {/* Project Screenshots */}
                   <div className="relative mt-6">
-                    <div className="bg-gradient-to-br from-secondary/50 to-muted/30 rounded-2xl p-4 sm:p-6 overflow-hidden">
-                      <div className="relative">
-                        <img 
-                          src={project.image} 
-                          alt={`${project.title} - UI/UX Design Screenshots`}
-                          className="w-full h-auto rounded-xl shadow-lg object-contain"
-                        />
-                        {/* Subtle overlay gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent rounded-xl pointer-events-none" />
-                      </div>
+                    <div className="bg-gradient-to-br from-accent/5 to-secondary/30 rounded-2xl p-4 sm:p-6 overflow-hidden">
+                      {project.images.length > 1 ? (
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                          {project.images.map((img, imgIndex) => (
+                            <div key={imgIndex} className="relative group/img">
+                              <img 
+                                src={img} 
+                                alt={`${project.title} - Screen ${imgIndex + 1}`}
+                                className="w-full h-auto rounded-xl shadow-lg object-cover aspect-[9/16] bg-card"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-foreground/5 to-transparent rounded-xl pointer-events-none" />
+                            </div>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="relative">
+                          <img 
+                            src={project.images[0]} 
+                            alt={`${project.title} - UI/UX Design Screenshots`}
+                            className="w-full h-auto rounded-xl shadow-lg object-contain"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent rounded-xl pointer-events-none" />
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
