@@ -10,7 +10,7 @@ const SkillsSection = () => {
     {
       title: "Design Tools",
       icon: Palette,
-      skills: ["Adobe Illustrator", "Adobe Photoshop", "Figma", "Canva"]
+      skills: ["Adobe Illustrator", "Figma", "Canva"]
     },
     {
       title: "Professional Skills",
