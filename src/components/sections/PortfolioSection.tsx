@@ -101,17 +101,16 @@ const PortfolioSection = () => {
                   
                   {/* Project Screenshots */}
                   <div className="relative mt-6">
-                    <div className="bg-gradient-to-br from-accent/5 to-secondary/30 rounded-2xl p-4 sm:p-6 overflow-hidden">
+                    <div className="bg-gradient-to-br from-accent/5 to-secondary/30 rounded-2xl p-6 sm:p-8 overflow-hidden">
                       {project.images.length > 1 ? (
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                        <div className="flex gap-4 sm:gap-6 overflow-x-auto pb-4 -mb-4 scrollbar-thin">
                           {project.images.map((img, imgIndex) => (
-                            <div key={imgIndex} className="relative group/img">
+                            <div key={imgIndex} className="relative flex-shrink-0">
                               <img 
                                 src={img} 
                                 alt={`${project.title} - Screen ${imgIndex + 1}`}
-                                className="w-full h-auto rounded-xl shadow-lg object-cover aspect-[9/16] bg-card"
+                                className="h-[400px] sm:h-[500px] w-auto rounded-2xl shadow-xl object-contain bg-card"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-t from-foreground/5 to-transparent rounded-xl pointer-events-none" />
                             </div>
                           ))}
                         </div>
@@ -120,9 +119,8 @@ const PortfolioSection = () => {
                           <img 
                             src={project.images[0]} 
                             alt={`${project.title} - UI/UX Design Screenshots`}
-                            className="w-full h-auto rounded-xl shadow-lg object-contain"
+                            className="w-full h-auto rounded-2xl shadow-xl object-contain max-h-[600px] mx-auto"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-background/10 to-transparent rounded-xl pointer-events-none" />
                         </div>
                       )}
                     </div>

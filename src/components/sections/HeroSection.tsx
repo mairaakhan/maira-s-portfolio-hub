@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Phone, MapPin, Palette } from "lucide-react";
 import profilePicture from "@/assets/profile-picture.jpeg";
 
 const HeroSection = () => {
@@ -51,6 +51,12 @@ const HeroSection = () => {
                 <a href="https://www.linkedin.com/in/maira-khan-083517324" target="_blank" rel="noopener noreferrer">
                   <Linkedin className="w-4 h-4" />
                   LinkedIn
+                </a>
+              </Button>
+              <Button variant="heroOutline" asChild>
+                <a href="https://www.behance.net/mairakhan21" target="_blank" rel="noopener noreferrer">
+                  <Palette className="w-4 h-4" />
+                  Behance
                 </a>
               </Button>
             </div>
