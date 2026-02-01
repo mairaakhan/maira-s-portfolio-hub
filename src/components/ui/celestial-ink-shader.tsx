@@ -17,7 +17,7 @@ const CelestialInkShader = () => {
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
     const clock = new THREE.Clock();
 
-    // 2) GLSL Shaders - Updated colors to match sage green/navy theme
+    // 2) GLSL Shaders
     const vertexShader = `
       void main() {
         gl_Position = vec4(position, 1.0);
@@ -57,64 +57,60 @@ const CelestialInkShader = () => {
       }
 
       void main() {
-        vec2 uv = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
-        vec2 mouse = (iMouse - 0.5 * iResolution.xy) / iResolution.y;
-        float t = iTime * 0.08;
+        // normalize coords to -1..1 on short side
+        vec2 uv    = (gl_FragCoord.xy - 0.5 * iResolution.xy) / iResolution.y;
+        vec2 mouse = (iMouse      - 0.5 * iResolution.xy) / iResolution.y;
+        float t     = iTime * 0.1;
 
         // ripple around mouse
         float d = length(uv - mouse);
-        float ripple = 1.0 - smoothstep(0.0, 0.4, d);
+        float ripple = 1.0 - smoothstep(0.0, 0.3, d);
 
         // rotation
-        float angle = t * 0.3;
+        float angle = t * 0.5;
         mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
         vec2 p = rot * uv;
 
         // ink patterns
-        float pattern = fbm(p * 2.5 + t);
-        pattern -= fbm(p * 5.0 - t * 0.3) * 0.25;
-        pattern += ripple * 0.3;
+        float pattern = fbm(p * 3.0 + t);
+        pattern -= fbm(p * 6.0 - t * 0.5) * 0.3;
+        pattern += ripple * 0.5;
 
-        // Theme colors: Deep Navy to Sage Green
-        // Navy: hsl(220, 40%, 13%) = rgb(20, 28, 46)
-        // Sage: hsl(160, 35%, 50%) = rgb(83, 172, 140)
-        vec3 navy = vec3(0.078, 0.11, 0.18);
-        vec3 sage = vec3(0.33, 0.67, 0.55);
-        vec3 cream = vec3(0.99, 0.98, 0.96);
+        // color mix
+        vec3 c1 = vec3(0.1, 0.0, 0.2);
+        vec3 c2 = vec3(0.8, 0.2, 0.4);
+        vec3 highlight = vec3(1.0, 0.9, 0.7);
 
-        vec3 color = mix(navy, sage * 0.6, smoothstep(0.3, 0.7, pattern));
-        float hl = pow(smoothstep(0.65, 0.85, pattern), 2.5);
-        color = mix(color, cream * 0.3, hl * 0.4);
+        vec3 color = mix(c1, c2, smoothstep(0.4, 0.6, pattern));
+        float hl = pow(smoothstep(0.6, 0.8, pattern), 2.0);
+        color = mix(color, highlight, hl);
 
-        // Add subtle vignette
-        float vignette = 1.0 - length(uv) * 0.5;
-        color *= vignette;
-
-        // Keep it subtle - low opacity effect
-        gl_FragColor = vec4(color, 0.6);
+        gl_FragColor = vec4(color, 1.0);
       }
     `;
 
     // 3) Uniforms, Material, Geometry, Mesh
     const uniforms = {
-      iTime: { value: 0 },
+      iTime:       { value: 0 },
       iResolution: { value: new THREE.Vector2() },
-      iMouse: { value: new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2) }
+      iMouse:      { value: new THREE.Vector2(
+                       window.innerWidth / 2,
+                       window.innerHeight / 2
+                     ) }
     };
 
     const material = new THREE.ShaderMaterial({
       vertexShader,
       fragmentShader,
-      uniforms,
-      transparent: true
+      uniforms
     });
     const geometry = new THREE.PlaneGeometry(2, 2);
-    const mesh = new THREE.Mesh(geometry, material);
+    const mesh     = new THREE.Mesh(geometry, material);
     scene.add(mesh);
 
     // 4) Resize handler
     const onResize = () => {
-      const width = container.clientWidth;
+      const width  = container.clientWidth;
       const height = container.clientHeight;
       renderer.setSize(width, height);
       uniforms.iResolution.value.set(width, height);
@@ -124,7 +120,10 @@ const CelestialInkShader = () => {
 
     // 5) Mouse handler
     const onMouseMove = (e: MouseEvent) => {
-      uniforms.iMouse.value.set(e.clientX, container.clientHeight - e.clientY);
+      uniforms.iMouse.value.set(
+        e.clientX,
+        container.clientHeight - e.clientY
+      );
     };
     window.addEventListener('mousemove', onMouseMove);
 
@@ -154,11 +153,10 @@ const CelestialInkShader = () => {
   return (
     <div
       ref={containerRef}
-      className="fixed inset-0 -z-10 pointer-events-none"
+      className="fixed inset-0 -z-10"
       style={{ width: '100%', height: '100%' }}
     />
   );
 };
 
 export default CelestialInkShader;
-

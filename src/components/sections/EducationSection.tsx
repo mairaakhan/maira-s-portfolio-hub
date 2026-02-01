@@ -1,4 +1,5 @@
 import { GraduationCap, Calendar, Award } from "lucide-react";
+import ScrollReveal from "@/components/ui/scroll-reveal";
 
 const EducationSection = () => {
   const education = [
@@ -26,18 +27,20 @@ const EducationSection = () => {
   ];
 
   return (
-    <section id="education" className="section-padding">
+    <section id="education" className="section-padding bg-background/80 backdrop-blur-sm">
       <div className="container-tight">
         <div className="space-y-12">
           {/* Section Header */}
-          <div className="space-y-4">
-            <span className="text-accent font-medium tracking-wide uppercase text-sm">
-              Education
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
-              Academic <span className="text-gradient">Background</span>
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div className="space-y-4">
+              <span className="text-accent font-medium tracking-wide uppercase text-sm">
+                Education
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
+                Academic <span className="text-gradient">Background</span>
+              </h2>
+            </div>
+          </ScrollReveal>
 
           {/* Education Timeline */}
           <div className="relative">
@@ -46,52 +49,51 @@ const EducationSection = () => {
             
             <div className="space-y-6">
               {education.map((edu, index) => (
-                <div 
-                  key={index}
-                  className="relative group"
-                >
-                  {/* Timeline dot */}
-                  <div className="absolute left-6 top-8 w-3 h-3 -translate-x-1/2 rounded-full bg-accent border-4 border-background hidden md:block z-10" />
-                  
-                  <div className={`md:ml-16 p-6 bg-card rounded-2xl shadow-card border border-border/50 card-hover ${edu.current ? 'ring-2 ring-accent/20' : ''}`}>
-                    <div className="flex flex-col sm:flex-row sm:items-start gap-4">
-                      {/* Icon */}
-                      <div className="flex-shrink-0">
-                        <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
-                          <GraduationCap className="w-6 h-6 text-accent" />
-                        </div>
-                      </div>
-                      
-                      {/* Content */}
-                      <div className="flex-1 space-y-2">
-                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                          <h3 className="text-xl font-display font-semibold text-foreground">
-                            {edu.degree}
-                          </h3>
-                          <div className="flex items-center gap-2 text-muted-foreground text-sm">
-                            <Calendar className="w-4 h-4" />
-                            <span>{edu.year}</span>
+                <ScrollReveal key={index} delay={index * 0.15} direction="left">
+                  <div className="relative group">
+                    {/* Timeline dot */}
+                    <div className="absolute left-6 top-8 w-3 h-3 -translate-x-1/2 rounded-full bg-accent border-4 border-background hidden md:block z-10" />
+                    
+                    <div className={`md:ml-16 p-6 bg-card/90 backdrop-blur-sm rounded-2xl shadow-card border border-border/50 card-hover ${edu.current ? 'ring-2 ring-accent/20' : ''}`}>
+                      <div className="flex flex-col sm:flex-row sm:items-start gap-4">
+                        {/* Icon */}
+                        <div className="flex-shrink-0">
+                          <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                            <GraduationCap className="w-6 h-6 text-accent" />
                           </div>
                         </div>
                         
-                        <p className="text-muted-foreground">
-                          {edu.institution}
-                        </p>
-                        
-                        <div className="pt-2">
-                          <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
-                            edu.current 
-                              ? 'bg-accent/10 text-accent' 
-                              : 'bg-secondary text-secondary-foreground'
-                          }`}>
-                            <Award className="w-3.5 h-3.5" />
-                            {edu.status}
-                          </span>
+                        {/* Content */}
+                        <div className="flex-1 space-y-2">
+                          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                            <h3 className="text-xl font-display font-semibold text-foreground">
+                              {edu.degree}
+                            </h3>
+                            <div className="flex items-center gap-2 text-muted-foreground text-sm">
+                              <Calendar className="w-4 h-4" />
+                              <span>{edu.year}</span>
+                            </div>
+                          </div>
+                          
+                          <p className="text-muted-foreground">
+                            {edu.institution}
+                          </p>
+                          
+                          <div className="pt-2">
+                            <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-sm font-medium ${
+                              edu.current 
+                                ? 'bg-accent/10 text-accent' 
+                                : 'bg-secondary text-secondary-foreground'
+                            }`}>
+                              <Award className="w-3.5 h-3.5" />
+                              {edu.status}
+                            </span>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
