@@ -16,6 +16,7 @@ const Header = () => {
 
   const navLinks = [
     { href: "#education", label: "Education" },
+    { href: "#experience", label: "Experience" },
     { href: "#certifications", label: "Certifications" },
     { href: "#skills", label: "Skills" },
     { href: "#portfolio", label: "Portfolio" },

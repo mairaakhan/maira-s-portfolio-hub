@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowDown, Linkedin, Mail, Phone, MapPin } from "lucide-react";
+import profilePicture from "@/assets/profile-picture.jpeg";
 
 const HeroSection = () => {
   return (
@@ -65,15 +66,17 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Profile Visual */}
+          {/* Profile Photo */}
           <div className="relative flex justify-center lg:justify-end animate-fade-in delay-200">
             <div className="relative">
               {/* Decorative elements */}
               <div className="absolute -inset-4 bg-gradient-to-br from-accent/20 to-transparent rounded-full blur-2xl" />
-              <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center relative">
-                <span className="text-8xl md:text-9xl font-display font-bold text-primary-foreground/90">
-                  MK
-                </span>
+              <div className="w-72 h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden relative shadow-card">
+                <img 
+                  src={profilePicture} 
+                  alt="Maira Khan" 
+                  className="w-full h-full object-cover object-top"
+                />
               </div>
               {/* Floating accent shapes */}
               <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full animate-pulse" />
