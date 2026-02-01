@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -68,10 +69,12 @@ const Header = () => {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.6 }}
+              className="flex items-center gap-3"
             >
+              <ThemeToggle />
               <Button
                 size="sm"
-                className="ml-4 rounded-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md hover:shadow-lg transition-all duration-300"
+                className="rounded-full bg-accent hover:bg-accent/90 text-accent-foreground shadow-md hover:shadow-lg transition-all duration-300"
                 asChild
               >
                 <a href="#contact">Hire Me</a>
@@ -139,10 +142,11 @@ const Header = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navLinks.length * 0.05 }}
-                  className="pt-2"
+                  className="pt-2 flex items-center gap-3"
                 >
+                  <ThemeToggle />
                   <Button
-                    className="w-full rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground"
+                    className="flex-1 rounded-xl bg-accent hover:bg-accent/90 text-accent-foreground"
                     asChild
                   >
                     <a href="#contact" onClick={() => setIsMobileMenuOpen(false)}>
