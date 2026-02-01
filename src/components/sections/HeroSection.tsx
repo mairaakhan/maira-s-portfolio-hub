@@ -54,7 +54,7 @@ const HeroSection = () => {
                 </a>
               </Button>
               <Button variant="heroOutline" asChild>
-                <a href="https://www.behance.net/mairakhan21" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.behance.net/mairakhan21" target="_blank" rel="noreferrer">
                   <Palette className="w-4 h-4" />
                   Behance
                 </a>
