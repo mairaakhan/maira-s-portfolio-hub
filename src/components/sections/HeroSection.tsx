@@ -11,31 +11,42 @@ const HeroSection = () => {
           {/* Text Content */}
           <div className="space-y-8">
             <motion.div 
-              className="space-y-4"
+              className="space-y-6"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-accent font-medium tracking-wide uppercase text-sm">
-                Software Engineer & UI/UX Designer
-              </p>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-tight">
-                Hi, I'm Maira Khan
+              {/* Decorative dot */}
+              <div className="flex items-center gap-3">
+                <motion.div 
+                  className="w-3 h-3 rounded-full bg-accent"
+                  animate={{ scale: [1, 1.2, 1] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+                <p className="text-foreground font-medium tracking-wide text-lg">
+                  Hi, I'm Maira Khan
+                </p>
+              </div>
+              
+              {/* Bold Tagline */}
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-foreground leading-tight">
+                I craft digital experiences
+                <br />
+                with code & <span className="text-gradient italic">creativity</span>
               </h1>
               
+              <p className="text-lg text-muted-foreground max-w-lg">
+                Software Engineer & UI/UX Designer building intuitive, 
+                user-friendly applications that make an impact.
+              </p>
+              
               {/* Intro Text */}
-              <div className="space-y-3 text-muted-foreground leading-relaxed text-base max-w-xl">
+              <div className="space-y-3 text-muted-foreground leading-relaxed text-base max-w-xl pt-2">
                 <p>
-                  A <span className="text-foreground font-medium">Software Engineering student</span> in my final year (7th semester) with knowledge of frontend development (HTML, CSS, JavaScript, React), backend development (Node.js, Express, MongoDB), Python, and OOP in Java.
+                  A <span className="text-foreground font-medium">Software Engineering student</span> in my final year with expertise in frontend (React, JavaScript), backend (Node.js, Express, MongoDB), Python, and Java.
                 </p>
                 <p>
-                  I'm passionate about <span className="text-foreground font-medium">UI/UX design</span> and gained hands-on experience during a 6-month internship, creating intuitive and user-friendly digital experiences.
-                </p>
-                <p>
-                  Currently learning <span className="text-foreground font-medium">AI tools</span> like Lovable and Bolt to build websites and apps more efficiently. I also started my own <span className="text-foreground font-medium">online jewellery store</span> in 2023 — currently on a short break, but planning to relaunch soon!
-                </p>
-                <p className="text-accent italic">
-                  Committed to learning, creating, and building projects that make an impact.
+                  Passionate about <span className="text-foreground font-medium">UI/UX design</span> with 6 months of hands-on internship experience. Currently exploring <span className="text-foreground font-medium">AI tools</span> to build smarter, faster.
                 </p>
               </div>
               
