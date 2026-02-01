@@ -4,7 +4,9 @@ import caseStudyFrame1 from "@/assets/case-study-frame1.png";
 import caseStudyFrame2 from "@/assets/case-study-frame2.png";
 import caseStudyFrame3 from "@/assets/case-study-frame3.png";
 import caseStudyFrame4 from "@/assets/case-study-frame4.png";
-import internshipImage from "@/assets/internship-laundry-system.png";
+import internshipLaundry1 from "@/assets/internship-laundry-1.png";
+import internshipLaundry2 from "@/assets/internship-laundry-2.png";
+import internshipLaundry3 from "@/assets/internship-laundry-3.png";
 
 const PortfolioSection = () => {
   const projects = [
@@ -21,10 +23,10 @@ const PortfolioSection = () => {
       title: "Guest Laundry Management System",
       category: "Internship Project",
       type: "desktop",
-      description: "A full-featured web application designed during my UI/UX internship at Aditya Enterprises. Created an intuitive laundry management dashboard for hotel receptions, featuring item categorization, billing preview, and comprehensive filter systems for efficient guest service management.",
+      description: "A comprehensive web application designed during my UI/UX internship at Aditya Enterprises. This was a very extensive project, and these screenshots represent only a small portion of the complete system. Created an intuitive laundry management dashboard for hotel receptions, featuring item categorization with advanced filtering, billing preview with detailed breakdowns, and comprehensive apparel selection systems for efficient guest service management.",
       tools: ["Figma", "Dashboard Design", "Web Application", "UX Research"],
       link: null,
-      images: [internshipImage]
+      images: [internshipLaundry1, internshipLaundry2, internshipLaundry3]
     }
   ];
 

@@ -74,7 +74,7 @@ const ContactSection = () => {
               <a 
                 href="https://www.behance.net/mairakhan21"
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl bg-white/10 hover:bg-white/20 transition-colors group"
               >
                 <div className="p-3 bg-white/20 rounded-lg">
