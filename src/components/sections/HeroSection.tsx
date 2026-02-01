@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { ArrowDown, Linkedin, Mail, Github } from "lucide-react";
+import { ArrowDown, Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const HeroSection = () => {
   return (
@@ -18,10 +18,24 @@ const HeroSection = () => {
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-tight animate-slide-up">
                 Maira Khan
               </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-lg leading-relaxed animate-slide-up delay-100">
-                Undergraduate Software Engineer crafting intuitive digital experiences 
-                through thoughtful design and clean code.
-              </p>
+              
+              {/* Contact Info */}
+              <div className="flex flex-wrap gap-4 text-muted-foreground text-sm animate-slide-up delay-100">
+                <a href="tel:03082246473" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+                  <Phone className="w-4 h-4" />
+                  03082246473
+                </a>
+                <span className="hidden sm:inline">|</span>
+                <a href="mailto:mairaakhaanx@gmail.com" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+                  <Mail className="w-4 h-4" />
+                  mairaakhaanx@gmail.com
+                </a>
+                <span className="hidden sm:inline">|</span>
+                <span className="flex items-center gap-1.5">
+                  <MapPin className="w-4 h-4" />
+                  Karachi, 74600
+                </span>
+              </div>
             </div>
 
             {/* CTA Buttons */}
@@ -40,28 +54,14 @@ const HeroSection = () => {
               </Button>
             </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4 pt-4 animate-fade-in delay-300">
-              <a 
-                href="https://www.linkedin.com/in/maira-khan-083517324" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-3 rounded-full bg-secondary hover:bg-accent/10 hover:text-accent transition-all duration-300"
-              >
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a 
-                href="mailto:contact@mairakhan.com"
-                className="p-3 rounded-full bg-secondary hover:bg-accent/10 hover:text-accent transition-all duration-300"
-              >
-                <Mail className="w-5 h-5" />
-              </a>
-              <a 
-                href="#"
-                className="p-3 rounded-full bg-secondary hover:bg-accent/10 hover:text-accent transition-all duration-300"
-              >
-                <Github className="w-5 h-5" />
-              </a>
+            {/* Personal Details */}
+            <div className="flex flex-wrap gap-6 pt-4 text-sm text-muted-foreground animate-fade-in delay-300">
+              <div>
+                <span className="text-foreground font-medium">Date of Birth:</span> 4-Feb-2004
+              </div>
+              <div>
+                <span className="text-foreground font-medium">Languages:</span> Urdu and English
+              </div>
             </div>
           </div>
 
@@ -84,7 +84,7 @@ const HeroSection = () => {
 
         {/* Scroll indicator */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-          <a href="#about" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
+          <a href="#education" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-accent transition-colors">
             <span className="text-xs uppercase tracking-widest">Scroll</span>
             <ArrowDown className="w-4 h-4" />
           </a>
