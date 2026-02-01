@@ -1,58 +1,40 @@
-import { Code, Palette, Database, Globe, Figma, Layers } from "lucide-react";
+import { Monitor, Palette, BarChart3 } from "lucide-react";
 
 const SkillsSection = () => {
   const skillCategories = [
     {
-      title: "Frontend Development",
-      icon: Code,
-      skills: ["HTML/CSS", "JavaScript", "React", "TypeScript", "Tailwind CSS"]
-    },
-    {
-      title: "UI/UX Design",
-      icon: Palette,
-      skills: ["Figma", "Adobe XD", "Wireframing", "Prototyping", "User Research"]
-    },
-    {
-      title: "Backend Basics",
-      icon: Database,
-      skills: ["Node.js", "Python", "SQL", "REST APIs", "Git"]
+      title: "Office & Productivity",
+      icon: Monitor,
+      skills: ["Windows", "Ms. Word", "Excel", "PowerPoint"]
     },
     {
       title: "Design Tools",
-      icon: Figma,
-      skills: ["Figma", "Photoshop", "Illustrator", "Canva", "Miro"]
+      icon: Palette,
+      skills: ["Adobe Illustrator", "Adobe Photoshop", "Figma", "Canva"]
     },
     {
-      title: "Web Technologies",
-      icon: Globe,
-      skills: ["Responsive Design", "SEO Basics", "Performance", "Accessibility"]
-    },
-    {
-      title: "Soft Skills",
-      icon: Layers,
-      skills: ["Problem Solving", "Team Collaboration", "Communication", "Time Management"]
+      title: "Professional Skills",
+      icon: BarChart3,
+      skills: ["Presentation", "Management", "Analytical Skills"]
     }
   ];
 
   return (
-    <section id="skills" className="section-padding bg-secondary/30">
+    <section id="skills" className="section-padding">
       <div className="container-wide">
         <div className="space-y-12">
           {/* Section Header */}
           <div className="text-center space-y-4">
             <span className="text-accent font-medium tracking-wide uppercase text-sm">
-              Skills & Expertise
+              Skill Set
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
-              What I <span className="text-gradient">Bring</span>
+              My <span className="text-gradient">Expertise</span>
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              A diverse skill set combining technical development with creative design thinking.
-            </p>
           </div>
 
           {/* Skills Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {skillCategories.map((category, index) => (
               <div 
                 key={index}
@@ -68,16 +50,17 @@ const SkillsSection = () => {
                     </h3>
                   </div>
                   
-                  <div className="flex flex-wrap gap-2">
+                  <ul className="space-y-2">
                     {category.skills.map((skill, i) => (
-                      <span 
+                      <li 
                         key={i}
-                        className="px-3 py-1.5 bg-secondary text-secondary-foreground rounded-lg text-sm"
+                        className="flex items-center gap-2 text-muted-foreground"
                       >
+                        <span className="w-1.5 h-1.5 bg-accent rounded-full" />
                         {skill}
-                      </span>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
             ))}

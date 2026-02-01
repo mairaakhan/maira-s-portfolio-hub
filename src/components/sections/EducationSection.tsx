@@ -1,14 +1,32 @@
-import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { GraduationCap } from "lucide-react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const EducationSection = () => {
   const education = [
     {
-      degree: "Bachelor of Science in Software Engineering",
-      institution: "University",
-      location: "Pakistan",
-      period: "Currently Pursuing",
-      description: "Focusing on software development, algorithms, data structures, and UI/UX design principles. Building a strong foundation in both technical and creative aspects of software engineering.",
-      highlights: ["UI/UX Design", "Web Development", "Data Structures", "Algorithms"]
+      degree: "Software Engineering (BSSE)",
+      institution: "Department of Computer Science - UBIT University of Karachi",
+      year: "Expected 2026",
+      grade: "Currently enrolled in sixth semester"
+    },
+    {
+      degree: "Intermediate",
+      institution: "Aga Khan Higher Secondary School, Karachi",
+      year: "2022",
+      grade: "A-1 Grade"
+    },
+    {
+      degree: "Matriculation",
+      institution: "Blue Horizon School, Karachi",
+      year: "2020",
+      grade: "A-1 Grade"
     }
   ];
 
@@ -22,64 +40,41 @@ const EducationSection = () => {
               Education
             </span>
             <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
-              Academic <span className="text-gradient">Journey</span>
+              Academic <span className="text-gradient">Background</span>
             </h2>
           </div>
 
-          {/* Education Cards */}
-          <div className="space-y-8">
-            {education.map((edu, index) => (
-              <div 
-                key={index} 
-                className="relative p-8 bg-card rounded-2xl shadow-card card-hover border border-border/50"
-              >
-                {/* Accent bar */}
-                <div className="absolute left-0 top-8 bottom-8 w-1 bg-accent rounded-full" />
-                
-                <div className="pl-6 space-y-6">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                    <div className="space-y-2">
-                      <div className="flex items-center gap-3">
-                        <div className="p-2 bg-accent/10 rounded-lg">
-                          <GraduationCap className="w-5 h-5 text-accent" />
-                        </div>
-                        <h3 className="text-xl md:text-2xl font-display font-semibold text-foreground">
-                          {edu.degree}
-                        </h3>
-                      </div>
-                      <p className="text-lg text-muted-foreground">{edu.institution}</p>
-                    </div>
-                    
-                    <div className="flex flex-col gap-2 text-sm text-muted-foreground">
+          {/* Education Table */}
+          <div className="bg-card rounded-2xl shadow-card border border-border/50 overflow-hidden">
+            <Table>
+              <TableHeader>
+                <TableRow className="bg-primary hover:bg-primary">
+                  <TableHead className="text-primary-foreground font-semibold">Degree</TableHead>
+                  <TableHead className="text-primary-foreground font-semibold">Institute Name</TableHead>
+                  <TableHead className="text-primary-foreground font-semibold text-center">Passing Year</TableHead>
+                  <TableHead className="text-primary-foreground font-semibold text-center">Grade</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {education.map((edu, index) => (
+                  <TableRow key={index} className="hover:bg-secondary/50">
+                    <TableCell className="font-medium text-foreground">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>{edu.period}</span>
+                        <GraduationCap className="w-4 h-4 text-accent hidden sm:block" />
+                        {edu.degree}
                       </div>
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{edu.location}</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <p className="text-muted-foreground leading-relaxed">
-                    {edu.description}
-                  </p>
-
-                  {/* Highlights */}
-                  <div className="flex flex-wrap gap-2">
-                    {edu.highlights.map((highlight, i) => (
-                      <span 
-                        key={i}
-                        className="px-4 py-2 bg-accent-soft text-accent rounded-full text-sm font-medium"
-                      >
-                        {highlight}
+                    </TableCell>
+                    <TableCell className="text-muted-foreground">{edu.institution}</TableCell>
+                    <TableCell className="text-center text-muted-foreground">{edu.year}</TableCell>
+                    <TableCell className="text-center">
+                      <span className="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm font-medium">
+                        {edu.grade}
                       </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
           </div>
         </div>
       </div>

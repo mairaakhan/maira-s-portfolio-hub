@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Mail, Linkedin, MapPin, ArrowUpRight } from "lucide-react";
+import { Mail, Linkedin, MapPin, Phone, ArrowUpRight } from "lucide-react";
 
 const ContactSection = () => {
   return (
@@ -30,7 +30,21 @@ const ContactSection = () => {
             {/* Contact Info */}
             <div className="grid md:grid-cols-2 gap-6">
               <a 
-                href="mailto:contact@mairakhan.com"
+                href="tel:03082246473"
+                className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 hover:bg-primary-foreground/15 transition-colors group"
+              >
+                <div className="p-3 bg-accent rounded-lg">
+                  <Phone className="w-5 h-5 text-accent-foreground" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-primary-foreground/60">Phone</p>
+                  <p className="font-medium">03082246473</p>
+                </div>
+                <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+
+              <a 
+                href="mailto:mairaakhaanx@gmail.com"
                 className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10 hover:bg-primary-foreground/15 transition-colors group"
               >
                 <div className="p-3 bg-accent rounded-lg">
@@ -38,7 +52,7 @@ const ContactSection = () => {
                 </div>
                 <div className="flex-1">
                   <p className="text-sm text-primary-foreground/60">Email</p>
-                  <p className="font-medium">contact@mairakhan.com</p>
+                  <p className="font-medium">mairaakhaanx@gmail.com</p>
                 </div>
                 <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
@@ -58,18 +72,22 @@ const ContactSection = () => {
                 </div>
                 <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
-            </div>
 
-            {/* Location */}
-            <div className="flex items-center gap-2 text-primary-foreground/60">
-              <MapPin className="w-4 h-4" />
-              <span>Based in Pakistan</span>
+              <div className="flex items-center gap-4 p-4 rounded-xl bg-primary-foreground/10">
+                <div className="p-3 bg-accent rounded-lg">
+                  <MapPin className="w-5 h-5 text-accent-foreground" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm text-primary-foreground/60">Location</p>
+                  <p className="font-medium">Karachi, 74600</p>
+                </div>
+              </div>
             </div>
 
             {/* CTA */}
             <div className="pt-4">
               <Button variant="accent" size="lg" asChild>
-                <a href="mailto:contact@mairakhan.com">
+                <a href="mailto:mairaakhaanx@gmail.com">
                   <Mail className="w-4 h-4" />
                   Send me an email
                 </a>
