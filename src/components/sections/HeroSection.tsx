@@ -20,12 +20,28 @@ const HeroSection = () => {
                 Software Engineer & UI/UX Designer
               </p>
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-display font-semibold text-foreground leading-tight">
-                Maira Khan
+                Hi, I'm Maira Khan
               </h1>
+              
+              {/* Intro Text */}
+              <div className="space-y-3 text-muted-foreground leading-relaxed text-base max-w-xl">
+                <p>
+                  A <span className="text-foreground font-medium">Software Engineering student</span> in my final year (7th semester) with knowledge of frontend development (HTML, CSS, JavaScript, React), backend development (Node.js, Express, MongoDB), Python, and OOP in Java.
+                </p>
+                <p>
+                  I'm passionate about <span className="text-foreground font-medium">UI/UX design</span> and gained hands-on experience during a 6-month internship, creating intuitive and user-friendly digital experiences.
+                </p>
+                <p>
+                  Currently learning <span className="text-foreground font-medium">AI tools</span> like Lovable and Bolt to build websites and apps more efficiently. I also started my own <span className="text-foreground font-medium">online jewellery store</span> in 2023 — currently on a short break, but planning to relaunch soon!
+                </p>
+                <p className="text-accent italic">
+                  Committed to learning, creating, and building projects that make an impact.
+                </p>
+              </div>
               
               {/* Contact Info */}
               <motion.div 
-                className="flex flex-wrap gap-4 text-muted-foreground text-sm"
+                className="flex flex-wrap gap-4 text-muted-foreground text-sm pt-2"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
