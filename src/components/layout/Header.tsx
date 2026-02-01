@@ -25,17 +25,18 @@ const Header = () => {
   ];
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ${
-        isScrolled
-          ? "w-[95%] max-w-5xl bg-background/70 backdrop-blur-xl shadow-lg border border-border/50 rounded-2xl"
-          : "w-[90%] max-w-4xl bg-background/50 backdrop-blur-md border border-border/30 rounded-full"
-      }`}
-    >
-      <nav className="px-6 md:px-8">
+    <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
+      <motion.header
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`transition-all duration-500 ${
+          isScrolled
+            ? "w-full max-w-5xl bg-background/70 backdrop-blur-xl shadow-lg border border-border/50 rounded-2xl"
+            : "w-full max-w-4xl bg-background/50 backdrop-blur-md border border-border/30 rounded-full"
+        }`}
+      >
+        <nav className="px-6 md:px-8">
         <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <motion.a
@@ -153,8 +154,9 @@ const Header = () => {
             </motion.div>
           )}
         </AnimatePresence>
-      </nav>
-    </motion.header>
+        </nav>
+      </motion.header>
+    </div>
   );
 };
 
