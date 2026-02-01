@@ -1,4 +1,5 @@
-import { Award, ExternalLink } from "lucide-react";
+import { Award } from "lucide-react";
+import ScrollReveal from "@/components/ui/scroll-reveal";
 
 const CertificationsSection = () => {
   const certifications = [
@@ -41,49 +42,50 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="section-padding bg-secondary/30">
+    <section id="certifications" className="section-padding bg-secondary/30 backdrop-blur-sm">
       <div className="container-wide">
         <div className="space-y-12">
           {/* Section Header */}
-          <div className="text-center space-y-4">
-            <span className="text-accent font-medium tracking-wide uppercase text-sm">
-              Certifications
-            </span>
-            <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
-              Professional <span className="text-gradient">Credentials</span>
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div className="text-center space-y-4">
+              <span className="text-accent font-medium tracking-wide uppercase text-sm">
+                Certifications
+              </span>
+              <h2 className="text-4xl md:text-5xl font-display font-semibold text-foreground">
+                Professional <span className="text-gradient">Credentials</span>
+              </h2>
+            </div>
+          </ScrollReveal>
 
           {/* Certifications Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
-              <div 
-                key={index}
-                className="p-6 bg-card rounded-2xl shadow-soft card-hover border border-border/50 group"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-start gap-3">
-                    <div className="p-3 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors duration-300 shrink-0">
-                      <Award className="w-5 h-5 text-accent" />
+              <ScrollReveal key={index} delay={index * 0.08} direction="up">
+                <div className="p-6 bg-card/90 backdrop-blur-sm rounded-2xl shadow-soft card-hover border border-border/50 group h-full">
+                  <div className="space-y-4">
+                    <div className="flex items-start gap-3">
+                      <div className="p-3 bg-accent/10 rounded-xl group-hover:bg-accent/20 transition-colors duration-300 shrink-0">
+                        <Award className="w-5 h-5 text-accent" />
+                      </div>
+                      <div className="space-y-1">
+                        <h3 className="font-display font-semibold text-foreground leading-tight">
+                          {cert.title}
+                        </h3>
+                        {(cert.issuer || cert.platform) && (
+                          <p className="text-sm text-accent font-medium">
+                            {cert.issuer}
+                            {cert.platform && ` • ${cert.platform}`}
+                          </p>
+                        )}
+                      </div>
                     </div>
-                    <div className="space-y-1">
-                      <h3 className="font-display font-semibold text-foreground leading-tight">
-                        {cert.title}
-                      </h3>
-                      {(cert.issuer || cert.platform) && (
-                        <p className="text-sm text-accent font-medium">
-                          {cert.issuer}
-                          {cert.platform && ` • ${cert.platform}`}
-                        </p>
-                      )}
-                    </div>
+                    
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      {cert.description}
+                    </p>
                   </div>
-                  
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {cert.description}
-                  </p>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
