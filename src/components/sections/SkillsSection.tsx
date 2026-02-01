@@ -1,8 +1,13 @@
-import { Monitor, Palette, BarChart3 } from "lucide-react";
+import { Monitor, Palette, BarChart3, Code } from "lucide-react";
 import ScrollReveal from "@/components/ui/scroll-reveal";
 
 const SkillsSection = () => {
   const skillCategories = [
+    {
+      title: "Programming Languages",
+      icon: Code,
+      skills: ["HTML", "CSS", "JavaScript", "React", "Node.js", "Express", "MongoDB", "Python", "Java", "OOP in Java"]
+    },
     {
       title: "Office & Productivity",
       icon: Monitor,
@@ -37,7 +42,7 @@ const SkillsSection = () => {
           </ScrollReveal>
 
           {/* Skills Grid */}
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skillCategories.map((category, index) => (
               <ScrollReveal key={index} delay={index * 0.1} direction="up">
                 <div className="p-6 bg-card/90 backdrop-blur-sm rounded-2xl shadow-soft card-hover border border-border/50 group h-full">
