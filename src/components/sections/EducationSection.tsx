@@ -7,7 +7,7 @@ const EducationSection = () => {
       degree: "Software Engineering (BSSE)",
       institution: "Department of Computer Science - UBIT University of Karachi",
       year: "Expected 2026",
-      status: "Currently enrolled in sixth semester",
+      status: "Currently enrolled in seventh semester",
       current: true
     },
     {
